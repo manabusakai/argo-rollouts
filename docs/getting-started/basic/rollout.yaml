@@ -32,7 +32,10 @@ spec:
     spec:
       containers:
       - name: rollouts-demo
-        image: nginx:1.21.4
+        image: busybox:latest
+        command:
+          - sleep
+          - 3600
         ports:
         - name: http
           containerPort: 8080
