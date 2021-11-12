@@ -35,7 +35,7 @@ spec:
         image: busybox:latest
         command:
           - sleep
-          - 3600
+          - "3600"
         ports:
         - name: http
           containerPort: 8080
