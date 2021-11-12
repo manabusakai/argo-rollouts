@@ -6,6 +6,12 @@ spec:
   replicas: 5
   strategy:
     canary:
+      stableMetadata:
+        labels:
+          role: stable
+      canaryMetadata:
+        labels:
+          role: canary
       steps:
       - setWeight: 20
       - pause: {}
@@ -35,3 +41,8 @@ spec:
           requests:
             memory: 32Mi
             cpu: 5m
+        env:
+        - name: ROLE
+          valueFrom:
+            fieldRef:
+              fieldPath: metadata.labels['role']
